@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QD7JK31E36"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QD7JK31E36');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectSphere</title>
+    <style>
+        /* Google Fonts Import */
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #ffd700; /* Gold */
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .container p {
+            color: #dcdcdc; /* Light gray */
+            margin-bottom: 20px;
+        }
+
+        .container a, .container button {
+            display: block;
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            text-decoration: none;
+            text-align: center;
+            color: #1e1e1e;
+            background-color: #ffd700; /* Gold */
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .container a:hover, .container button:hover {
+            background-color: #e0c300; /* Slightly darker gold */
+            transform: scale(1.02); /* Slightly enlarge on hover */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .container button:active {
+            transform: scale(0.98); /* Slightly shrink on click */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <div id="main-content">
+            <h1>ConnectSphere</h1>
+            <p>How can we assist you today?</p>
+            <button onclick="showMessage('register')">Register Account</button>
+            <button onclick="showMessage('subscribe')">Subscribe to ConnectSphere</button>
+            <button onclick="showMessage('service')">Customer Service</button>
+            <a href="tel:+1234567890">Call +123 456 7890</a>
+        </div>
+
+        <!-- Dynamic Content -->
+        <div id="dynamic-content" class="hidden">
+            <h1 id="message-title">Thank You!</h1>
+            <p id="message-body"></p>
+            <button onclick="goBack()">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        function showMessage(action) {
+            const mainContent = document.getElementById('main-content');
+            const dynamicContent = document.getElementById('dynamic-content');
+            const messageBody = document.getElementById('message-body');
+
+            // Define messages for each action
+            let message;
+            switch (action) {
+                case 'register':
+                    message = 'Thanks for registering your account, Joseph Derick Simbulan!';
+                    break;
+                case 'subscribe':
+                    message = 'Thanks for subscribing to ConnectSphere!';
+                    break;
+                case 'service':
+                    message = 'Thank you! A customer service representative will assist you shortly.';
+                    break;
+                default:
+                    message = 'Thank you!';
+            }
+
+            // Set message and toggle visibility
+            messageBody.textContent = message;
+            mainContent.classList.add('hidden');
+            dynamicContent.classList.remove('hidden');
+        }
+
+        function goBack() {
+            const mainContent = document.getElementById('main-content');
+            const dynamicContent = document.getElementById('dynamic-content');
+
+            // Toggle visibility
+            mainContent.classList.remove('hidden');
+            dynamicContent.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
+
